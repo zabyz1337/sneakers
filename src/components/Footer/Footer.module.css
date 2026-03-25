@@ -1,0 +1,16 @@
+.footer {
+  border-top: 1px solid #eaeaea;
+  padding: 24px 0;
+}
+
+.container {
+  width: 1200px;
+  max-width: calc(100% - 40px);
+  margin: 0 auto;
+}
+
+.text {
+  margin: 0;
+  color: #9d9d9d;
+  font-size: 14px;
+}
