@@ -1,0 +1,26 @@
+.main {
+  flex: 1;
+  padding: 40px 0 60px;
+}
+
+.container {
+  width: 1200px;
+  max-width: calc(100% - 40px);
+  margin: 0 auto;
+}
+
+.top {
+  margin-bottom: 40px;
+}
+
+.title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
