@@ -1,5 +1,18 @@
-import { createContext } from "react";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+import ProductProvider from "./context/ProductProvider/ProductProvider";
+import "./index.css";
 
-const ProductsContext = createContext();
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-export default ProductsContext;
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <ProductProvider>
+        <App />
+      </ProductProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
+);
