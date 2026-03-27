@@ -1,20 +1,31 @@
+import { formatPrice } from "../../utils/formatPrice";
 import styles from "./ProductCard.module.css";
 
-function ProductCard({ item, addToCart }) {
+function ProductCard({ item, addToCart, isInCart, isPending }) {
   return (
-    <div className={styles.card}>
-      <img src={item.image} alt={item.name} className={styles.image} />
+    <article className={styles.card}>
+      <div className={styles.imageWrap}>
+        <img src={item.image} alt={item.name} className={styles.image} />
+      </div>
+
       <h3 className={styles.name}>{item.name}</h3>
+
       <div className={styles.bottom}>
         <div>
-          <p className={styles.priceLabel}>Цена:</p>
-          <p className={styles.price}>{item.price} руб.</p>
+          <p className={styles.priceLabel}>цена</p>
+          <p className={styles.price}>{formatPrice(item.price)}</p>
         </div>
-        <button className={styles.button} onClick={() => addToCart(item)}>
-          +
+
+        <button
+          type="button"
+          className={styles.addButton}
+          onClick={() => addToCart(item)}
+          disabled={isPending}
+        >
+          {isPending ? "..." : isInCart ? "✓" : "+"}
         </button>
       </div>
-    </div>
+    </article>
   );
 }
 

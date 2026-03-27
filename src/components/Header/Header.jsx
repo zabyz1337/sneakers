@@ -2,25 +2,24 @@ import { NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
 
 function Header() {
+  const getLinkClassName = ({ isActive }) =>
+    `${styles.link} ${isActive ? styles.active : ""}`.trim();
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <div className={styles.left}>
-          <div className={styles.logo}>👟</div>
-          <div>
-            <h2 className={styles.title}>REACT SNEAKERS</h2>
-            <p className={styles.text}>Магазин лучших кроссовок</p>
-          </div>
-        </div>
+        <NavLink to="/" className={styles.brand}>
+          Сникер • магазин
+        </NavLink>
 
         <nav className={styles.nav}>
-          <NavLink to="/" className={styles.link}>
+          <NavLink to="/" className={getLinkClassName} end>
             Главная
           </NavLink>
-          <NavLink to="/cart" className={styles.link}>
+          <NavLink to="/cart" className={getLinkClassName}>
             Корзина
           </NavLink>
-          <NavLink to="/contacts" className={styles.link}>
+          <NavLink to="/contacts" className={getLinkClassName}>
             Контакты
           </NavLink>
         </nav>
